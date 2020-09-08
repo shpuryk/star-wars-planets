@@ -1,14 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PlanetsComponent } from './planets.component';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ApiService } from '../core/api.service';
+import { of } from 'rxjs';
 
 describe('PlanetsComponent', () => {
   let component: PlanetsComponent;
   let fixture: ComponentFixture<PlanetsComponent>;
-
+  const routerMock = { navigate: (params) => {}};
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlanetsComponent ]
+      declarations: [ PlanetsComponent ],
+      providers: [
+        { provide: Router, useValue: routerMock },
+        { provide: ActivatedRoute, useValue: { children: []}},
+        { provide: ApiService, useValue: { getPlanets: () => of([]) }}
+      ]
     })
     .compileComponents();
   }));
@@ -19,7 +27,9 @@ describe('PlanetsComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('should create', () => {
-    expect(component).toBeTruthy();
+  it('should navigate to planet info', () => {
+    spyOn(routerMock, 'navigate');
+    component.openPlanetInfo('name');
+    expect(routerMock.navigate).toHaveBeenCalledWith(['planets', 'name']);
   });
 });

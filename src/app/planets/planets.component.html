@@ -1,5 +1,12 @@
-<div *ngIf="route.children?.length === 0">
-    <p>planets list works!</p>
-    <button (click)="openInfo()">Go to random info</button>
+<div *ngIf="isVisible()">
+  <h2>Planets</h2>
+  <div
+    *ngFor="let planet of planets$ | async"
+    (click)="openPlanetInfo(planet.name)"
+    class="planet"
+  >
+    <div class="picture" [ngStyle]="{'background-image': 'url(' + planet.image + ')'}"></div>
+    <div class="title">{{ planet.name }}</div>
+  </div>
 </div>
 <router-outlet></router-outlet>

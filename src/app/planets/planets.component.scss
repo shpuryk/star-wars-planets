@@ -1,0 +1,33 @@
+:host {
+    flex: 1;
+}
+
+.planet {
+    display: flex;
+    padding: 10px;
+    background: #efefef;
+    margin: 10px 5px;
+    cursor: pointer;
+    .picture {
+        height: 140px;
+        width: 160px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .title {
+        display: flex;
+        align-items: center;
+        font-size: 32px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 450px) { 
+    .planet {
+        .picture {
+            height: 70px;
+            width: 80px;
+        }
+    }
+ }

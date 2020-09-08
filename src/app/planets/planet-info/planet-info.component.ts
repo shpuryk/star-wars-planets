@@ -8,9 +8,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class PlanetInfoComponent implements OnInit {
 
-  planetId: number;
+  planet: string;
   constructor(private router: Router, private activeRoute: ActivatedRoute) {
-    this.planetId = +this.activeRoute.snapshot.params.id;
+    this.planet = this.activeRoute.snapshot.params.id;
   }
 
   ngOnInit(): void {

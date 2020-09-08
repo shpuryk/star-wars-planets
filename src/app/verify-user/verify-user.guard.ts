@@ -21,6 +21,7 @@ export class VerifyUserGuard implements CanActivate {
       this.previousUrl = state.url;
     }
     return this.isVerified;
+    // return true;
   }
 
   verify(): void {
