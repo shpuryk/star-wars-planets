@@ -1,0 +1,7 @@
+<form [formGroup]="form">
+    <input formControlName="email"/>
+    <!-- <div *ngIf="form.get('email').errors.required">Email is required.</div> -->
+    <div *ngIf="showError">Please enter a valid email address</div>
+  </form>
+  <button (click)="verify()">Verify User</button>
+  
