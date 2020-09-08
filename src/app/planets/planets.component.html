@@ -1,12 +1,18 @@
 <div *ngIf="isVisible()">
   <h2>Planets</h2>
-  <div
-    *ngFor="let planet of planets$ | async"
-    (click)="openPlanetInfo(planet.name)"
-    class="planet"
-  >
-    <div class="picture" [ngStyle]="{'background-image': 'url(' + planet.image + ')'}"></div>
-    <div class="title">{{ planet.name }}</div>
+  <div *ngIf="planets$ | async as planets; else loading">
+    <div
+      *ngFor="let planet of planets$ | async"
+      (click)="openPlanetInfo(planet.name)"
+      class="planet"
+    >
+      <div
+        class="picture"
+        [ngStyle]="{ 'background-image': 'url(' + planet.image + ')' }"
+      ></div>
+      <div class="title">{{ planet.name }}</div>
+    </div>
   </div>
 </div>
+<ng-template #loading>Loading...</ng-template>
 <router-outlet></router-outlet>

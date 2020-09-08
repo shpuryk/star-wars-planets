@@ -1,0 +1,30 @@
+.planet {
+  display: flex;
+  .picture {
+    flex: 1;
+    img {
+      width: 100%;
+    }
+  }
+  .info {
+    flex: 1;
+    padding: 0px 20px;
+    div {
+      margin-bottom: 5px;
+      .prop {
+        font-weight: bold;
+        display: inline-block;
+        margin-right: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .planet {
+    flex-direction: column;
+    .info {
+      padding: 0px;
+    }
+  }
+}

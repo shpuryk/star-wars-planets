@@ -1,2 +1,25 @@
-<button (click)="goBack()">Back to Planet List</button>
-name: {{planet}}
+<a routerLink="/planets">Back to Planets</a>
+<p *ngIf="loading">
+  Loading...
+</p>
+<p *ngIf="errorMsg" class="error">
+  {{ errorMsg }}
+</p>
+<div *ngIf="planet">
+  <h2>{{ planet.name }}</h2>
+  <div class="planet">
+    <div class="picture"><img [src]="planet.image"/></div>
+    <div class="info">
+      <div>
+        <span class="prop">Region:</span><span>{{ planet.region }}</span>
+      </div>
+      <div>
+        <span class="prop">System:</span><span>{{ planet.system }}</span>
+      </div>
+      <div>
+        <span class="prop">Description:</span
+        ><span>{{ planet.description }}</span>
+      </div>
+    </div>
+  </div>
+</div>

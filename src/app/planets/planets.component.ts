@@ -20,9 +20,7 @@ export class PlanetsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.planets$ = this.api.getPlanets().pipe(
-      catchError(error => throwError(error))
-    );
+    this.planets$ = this.api.getPlanets();
   }
 
   openPlanetInfo(name: string): void {

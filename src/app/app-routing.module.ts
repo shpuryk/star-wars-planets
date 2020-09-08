@@ -17,7 +17,7 @@ const routes: Routes = [
     component: PlanetsComponent,
     children: [
       {
-        path: ':id',
+        path: ':name',
         component: PlanetInfoComponent,
       },
     ],
